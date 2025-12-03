@@ -1,88 +1,105 @@
 body {
-  font-family: "Prompt", sans-serif;
-  background: #f2f2f2;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative; /* เพื่อใช้ pseudo element */
+    font-family: "Noto Sans Thai", sans-serif;
+    background: linear-gradient( #fff , #C6EEFF);
+    border-radius: 25px;
+
 }
 
-.container {
-  max-width: 700px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+body::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10%;            /* ส่วนล่าง 10% */
+    background: #156AD1;    /* น้ำเงินเข้มเหมือนภาพ */
 }
 
-h1, h2 {
-  text-align: center;
-  color: #333;
+
+/* ----------------------------- */
+/* โลโก้ DE-MI ด้านบน */
+/* ----------------------------- */
+.logo-center img {
+    width: 130px;                 /* คงขนาด */
+    height: auto;
+    display: block;
+    margin: 5px auto 0 auto;
 }
 
-.question {
-  margin-bottom: 15px;
+
+/* ----------------------------- */
+/* มาสคอตตรงกลาง */
+/* ----------------------------- */
+.mascot-img {
+    width: 180px;                 /* คงขนาด */
+    height: auto;
+    margin: 15px auto;
+    display: block;
+}
+
+
+/* ----------------------------- */
+/* ช่องกรอกข้อมูล */
+/* ----------------------------- */
+.input-group {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 4px;
 }
 
 label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+    font-size: 15px;
+    font-weight: 700;
+    color: #000;
+    margin-left: 5px;
 }
 
-input, select {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+input {
+    width: 300px;
+    height: 50px;
+    border-radius: 40px;
+    border: none;
+    padding: 0 15px;
+    background: #F2F7FA;
+    font-size: 15px;
+    box-shadow: inset 0 4px 10px rgba(0,0,0,0.07);
+    outline: none;
 }
 
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
+input::placeholder {
+    color: #9bb6c6;
 }
 
-button:hover {
-  background-color: #0056b3;
+
+/* ----------------------------- */
+/* ปุ่ม Login สีเขียว */
+/* ----------------------------- */
+.btn {
+    margin-top: 12px;
+    width: 300px;
+    height: 48px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(180deg, #19a961, #0e8f54);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0 8px 15px rgba(14,135,86,0.2);
 }
 
-.section {
-  display: none;
-}
 
-.section.active {
-  display: block;
-}
-
-.patient-info {
-  background: #f8f9fa;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.wadjai {
-  background: #eef8ff;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-#section3 {
-  text-align: center;
-}
-
-#section3 p {
-  font-size: 18px;
-  margin: 20px 0;
-}
+/* ----------------------------- */
+/* ปิด media query — ไม่ต้องย่อ */
+/* เพราะคุณต้องการให้ “ไม่ขยับ” */
+/* ----------------------------- */
