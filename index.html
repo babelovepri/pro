@@ -1,160 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แบบประเมิน PAM</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style-login.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1>ระบบประเมินผู้ป่วยเบาหวาน</h1>
+    <div class="login-box">
 
-    <!-- Section 1: กรอกข้อมูล -->
-    <div class="section active" id="section1">
-      <h2>กรอกข้อมูลผู้ป่วย</h2>
-      <form id="patientForm">
-        <div class="question">
-          <label>ชื่อ-นามสกุล:</label>
-          <input type="text" name="fullname" required>
-        </div>
-        <div class="question">
-          <label>อายุ:</label>
-          <input type="number" name="age" min="1" required>
-        </div>
-        <div class="question">
-          <label>เพศ:</label>
-          <select name="gender" required>
-            <option value="">-- เลือกเพศ --</option>
-            <option value="ชาย">ชาย</option>
-            <option value="หญิง">หญิง</option>
-            <option value="อื่น ๆ">อื่น ๆ</option>
-          </select>
-        </div>
-        <div class="question">
-          <label>วันเกิด:</label>
-          <input type="date" name="birth_date" required>
-        </div>
-        <div class="question">
-          <label>เบอร์โทรศัพท์:</label>
-          <input type="tel" name="phone" pattern="[0-9]{10}" inputmode="numeric" required placeholder="เช่น 0812345678">
-        </div>
-            <div class="step active" id="step1">
-          <h3>ส่วนที่ 1: ความรู้และความเข้าใจ</h3>
-          <div class="question">
-            <label>1. คุณตรวจวัดระดับน้ำตาลตามที่แพทย์แนะนำไหมครับ/คะ? (เช่น 2-3 ครั้ง/สัปดาน์)</label>
-            <select name="q1" required>
-              <option value="">-- เลือกคำตอบ --</option>
-              <option value="1">ใช่</option>
-              <option value="2">ไม่</option>
-            </select>
-          </div>
-    <div class="question">
-            <label>2. คุณมีแผนการดูแลตนเอง เช่น ออกกำลังกาย ควบคุมอาหาร ที่ทำต่อเนื่องเกินเกิน 6เดือนไหมครับ/คะ?</label>
-            <select name="q2" required>
-              <option value="">-- เลือกคำตอบ --</option>
-              <option value="1">ใช่</option>
-              <option value="2">ไม่</option>
-            </select>
-          </div>
-
-          <div class="question">
-            <label>3. คุณเคยช่วยแนะนำหรือให้กำลังใจคนอื่นที่เป็นเบาหวานไหมครับ/คะ?</label>
-            <select name="q3" required>
-              <option value="">-- เลือกคำตอบ --</option>
-              <option value="1">ใช่</option>
-              <option value="2">ไม่</option>
-            </select>
-          </div>
-    </div>
-        <button type="submit">ถัดไป →</button>
-      </form>
-    </div>
-    <!-- Section 2: แบบประเมิน PAM -->
-    <div class="section" id="section2">
-      <h2>แบบประเมิน PAM</h2>
-      <div id="patientInfo" class="patient-info"></div>
-
-      <form id="pamForm">
-        <h3>ส่วนที่ 2: คำถาม PAM</h3>
-
-        <div class="question">
-          <label>1. ฉันเชื่อว่า การดูแลสุขภาพของฉันขึ้นอยู่กับตัวฉันเองไม่ใช่หมอ</label>
-          <select name="q1" required>
-            <option value="">-- เลือกคำตอบ --</option>
-            <option value="4">เห็นด้วยอย่างยิ่ง</option>
-            <option value="3">เห็นด้วย 70%</option>
-            <option value="2">เห็นด้วย 30%</option>
-            <option value="1">ต้องรอหมอสั่ง</option>
-          </select>
-        </div>
-
-        <div class="question">
-          <label>2. ฉันมั่นใจในการ "ตั้งเป้าหมายสุขภาพ" ที่เหมาะสมกับตนเอง</label>
-          <select name="q2" required>
-            <option value="">-- เลือกคำตอบ --</option>
-            <option value="4">มั่นใจเต็มที่</option>
-            <option value="3">มั่นใจ 70%</option>
-            <option value="2">มั่นใจ 50%</option>
-            <option value="1">ไม่แน่ใจเลย</option>
-          </select>
-        </div>
-
-        <div class="question">
-          <label>3. คุณมั่นใจว่าสามารถควบคุมอาหารด้วยตนเองได้หรืออาศัยคนในครอบครัวช่วยได้?</label>
-          <select name="q3" required>
-            <option value="">-- เลือกคำตอบ --</option>
-            <option value="4">มั่นใจมาก</option>
-            <option value="3">มั่นใจ 60–70%</option>
-            <option value="2">ไม่แน่ใจ</option>
-            <option value="1">ไม่ต้องปรับอะไร</option>
-          </select>
-        </div>
-
-        <div class="question">
-          <label>4. คุณรู้สึกอย่างไรกับการเปลี่ยนแปลงพฤติกรรมเสี่ยงต่อโรค?</label>
-          <select name="q4" required>
-            <option value="">-- เลือกคำตอบ --</option>
-            <option value="4">ไม่มีอะไรยาก</option>
-            <option value="3">ยาก 60%</option>
-            <option value="2">น่าจะต้องปรับปรุง</option>
-            <option value="1">ไม่เห็นว่ามีปัญหา</option>
-          </select>
-        </div>
-
-        <div class="question">
-          <label>5. คุณมีความเสี่ยงต่อโรคหัวใจและหลอดเลือดสมองมากแค่ไหน?</label>
-          <select name="q5" required>
-            <option value="">-- เลือกคำตอบ --</option>
-            <option value="4">ทราบและปรับลดแล้ว</option>
-            <option value="3">เพิ่งเริ่มปรับ</option>
-            <option value="2">ไม่ทราบแต่ต้องการปรับ</option>
-            <option value="1">ไม่แน่ใจและไม่ปรับ</option>
-          </select>
-        </div>
-        
-        <div class="wadjai">
-          <h3>ไม้บรรทัดวัดใจ (0–10)</h3>
-          <label for="heart-meter">คุณมีความพร้อมในการทำตามเป้าหมาย:</label><br>
-          <input type="range" id="heart-meter" name="heart-meter" min="0" max="10" value="5" oninput="level.value=this.value">
-          <output id="level">5</output>
-        </div>
-
-        <div class="buttons">
-          <button type="button" onclick="showSection(1)">← ย้อนกลับ</button>
-          <button type="submit">ส่งแบบประเมิน</button>
-        </div>
-      </form>
+    <div class="logo-center">
+        <img src="logo.png" alt="DeMi Logo">
     </div>
 
-    <!-- Section 3: หน้าสรุปผล -->
-    <div class="section" id="section3">
-      <h2>ส่งแบบประเมินสำเร็จ ✅</h2>
-      <p id="resultText"></p>
-      <button onclick="restart()">ทำแบบประเมินใหม่</button>
-    </div>
-  </div>
+    <img src="logoblue.png" class="mascot-img" alt="Mascot">
 
-  <script src="script.js"></script>
+    <div class="input-group">
+        <label>ชื่อผู้ใช้งาน</label>
+        <label for="citizenid">รหัสบัตรประชาชน:</label>
+        <input
+            type="number"
+            id="citizenid"
+            name="citizenid"
+            pattern="[0-9]{13}"
+            maxlength="13"
+            placeholder="รหัสบัตรประชาชน"
+            required
+            >
+    </div>
+
+    <div class="input-group">
+        <label>รหัสผ่าน</label>
+        <input type="password" placeholder="วัน/เดือน/ปีเกิด">
+    </div>
+
+    <a href="roleall.html"><button class="btn">Login เข้าสู่ระบบ</button></a>
+</div>
+
 </body>
-</html>
+</html> 
